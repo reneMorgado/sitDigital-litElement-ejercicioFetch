@@ -17,16 +17,16 @@ class MyApp extends LitElement {
     }
     render(){
         return html`
+            <h1>Peliculas</h1>
             <my-list .loaded="${!this.loading}" .list="${this.list}"></my-list>
         `
     }
     _getMovies () {
-        const url = "https://api.pokemontcg.io/v1/cards"
+        const url = "https://api.themoviedb.org/3/movie/now_playing?api_key=4ff32b3a95fabacb861ecfa8aa1dfcba&language=en-US&page=1"
         fetch(url)
             .then((r)=> r.json())
             .then((r)=> {
-                console.log(r)
-                this.list = r.cards
+                this.list = r.results
                 this.loading = false
             })
     }

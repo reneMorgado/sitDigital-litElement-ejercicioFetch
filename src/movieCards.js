@@ -16,7 +16,7 @@ class MovieCards extends LitElement {
         return html`
         ${this.loaded ? html`${this.list.length > 0 ? html`
             <ul>
-                ${this.list.map(element => html`<li>${element.name}</li>`)}
+                ${this.list.map(element => html`<li>${element.title}</li>`)}
             </ul>
         ` : html`<h1>Empty List</h1>`}` : html`<h1>Loading..</h1>`}
             

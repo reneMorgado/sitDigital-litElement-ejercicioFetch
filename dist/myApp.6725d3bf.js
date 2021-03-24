@@ -4267,7 +4267,7 @@ var MovieCards = /*#__PURE__*/function (_LitElement) {
     key: "render",
     value: function render() {
       return (0, _litElement.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        ", "\n            \n        "])), this.loaded ? (0, _litElement.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["", ""])), this.list.length > 0 ? (0, _litElement.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n            <ul>\n                ", "\n            </ul>\n        "])), this.list.map(function (element) {
-        return (0, _litElement.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["<li>", "</li>"])), element.name);
+        return (0, _litElement.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["<li>", "</li>"])), element.title);
       })) : (0, _litElement.html)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["<h1>Empty List</h1>"])))) : (0, _litElement.html)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["<h1>Loading..</h1>"]))));
     }
   }], [{
@@ -4345,19 +4345,18 @@ var MyApp = /*#__PURE__*/function (_LitElement) {
   _createClass(MyApp, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n            <my-list .loaded=\"", "\" .list=\"", "\"></my-list>\n        "])), !this.loading, this.list);
+      return (0, _litElement.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n            <h1>Peliculas</h1>\n            <my-list .loaded=\"", "\" .list=\"", "\"></my-list>\n        "])), !this.loading, this.list);
     }
   }, {
     key: "_getMovies",
     value: function _getMovies() {
       var _this2 = this;
 
-      var url = "https://api.pokemontcg.io/v1/cards";
+      var url = "https://api.themoviedb.org/3/movie/now_playing?api_key=4ff32b3a95fabacb861ecfa8aa1dfcba&language=en-US&page=1";
       fetch(url).then(function (r) {
         return r.json();
       }).then(function (r) {
-        console.log(r);
-        _this2.list = r.cards;
+        _this2.list = r.results;
         _this2.loading = false;
       });
     }
@@ -4407,7 +4406,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52949" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63429" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
